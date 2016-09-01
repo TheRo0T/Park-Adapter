@@ -1284,12 +1284,12 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="3.175" y1="2.54" x2="3.81" y2="1.905" width="0.1524" layer="21"/>
 <wire x1="3.81" y1="1.905" x2="3.81" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="1.905" y1="-2.54" x2="3.175" y2="-2.54" width="0.1524" layer="21"/>
-<pad name="1" x="-2.54" y="-1.27" drill="0.5" diameter="1.4224" shape="octagon"/>
-<pad name="2" x="-2.54" y="1.27" drill="0.5" diameter="1.4224" shape="octagon"/>
-<pad name="3" x="0" y="-1.27" drill="0.5" diameter="1.4224" shape="octagon"/>
-<pad name="4" x="0" y="1.27" drill="0.5" diameter="1.4224" shape="octagon"/>
-<pad name="5" x="2.54" y="-1.27" drill="0.5" diameter="1.4224" shape="octagon"/>
-<pad name="6" x="2.54" y="1.27" drill="0.5" diameter="1.4224" shape="octagon"/>
+<pad name="1" x="-2.54" y="-1.27" drill="0.5" diameter="1.6764" shape="octagon"/>
+<pad name="2" x="-2.54" y="1.27" drill="0.5" diameter="1.6764" shape="octagon"/>
+<pad name="3" x="0" y="-1.27" drill="0.5" diameter="1.6764" shape="octagon"/>
+<pad name="4" x="0" y="1.27" drill="0.5" diameter="1.6764" shape="octagon"/>
+<pad name="5" x="2.54" y="-1.27" drill="0.5" diameter="1.6764" shape="octagon"/>
+<pad name="6" x="2.54" y="1.27" drill="0.5" diameter="1.6764" shape="octagon"/>
 <text x="-3.81" y="3.175" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-3.81" y="-4.445" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-2.794" y1="-1.524" x2="-2.286" y2="-1.016" layer="51"/>
@@ -14553,11 +14553,13 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="T4" library="Park-A" deviceset="IRLML5203" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="JP1" library="Park-A" deviceset="PINHD-2X3" device=""/>
+<part name="ICSP" library="Park-A" deviceset="PINHD-2X3" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="R0805" value="470"/>
 <part name="D3" library="Park-A" deviceset="SS16" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0805" value="470"/>
+<part name="C11" library="rcl" deviceset="C-EU" device="C0805" value="0.1uF"/>
+<part name="GND14" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14583,8 +14585,8 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 <instance part="U3" gate="G$1" x="96.52" y="-25.4" smashed="yes">
 <attribute name="NAME" x="86.36" y="-12.7" size="1.778" layer="94"/>
 </instance>
-<instance part="R2" gate="G$1" x="-96.52" y="-12.7"/>
-<instance part="P+3" gate="1" x="-106.68" y="-2.54"/>
+<instance part="R2" gate="G$1" x="-124.46" y="-5.08" rot="R270"/>
+<instance part="P+3" gate="1" x="-124.46" y="5.08"/>
 <instance part="P+4" gate="1" x="73.66" y="-2.54"/>
 <instance part="GND3" gate="1" x="58.42" y="-45.72"/>
 <instance part="C5" gate="G$1" x="68.58" y="-40.64" smashed="yes" rot="R270">
@@ -14660,11 +14662,13 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 <instance part="GND11" gate="1" x="50.8" y="-93.98"/>
 <instance part="T4" gate="G$1" x="86.36" y="-73.66"/>
 <instance part="GND12" gate="1" x="5.08" y="-93.98"/>
-<instance part="JP1" gate="A" x="-121.92" y="22.86"/>
+<instance part="ICSP" gate="A" x="-121.92" y="22.86"/>
 <instance part="GND13" gate="1" x="-104.14" y="15.24"/>
-<instance part="R14" gate="G$1" x="-78.74" y="-12.7"/>
 <instance part="D3" gate="G$1" x="-104.14" y="25.4"/>
 <instance part="P+6" gate="1" x="-93.98" y="33.02"/>
+<instance part="R14" gate="G$1" x="-96.52" y="-12.7"/>
+<instance part="C11" gate="G$1" x="-124.46" y="-20.32"/>
+<instance part="GND14" gate="1" x="-124.46" y="-30.48"/>
 </instances>
 <busses>
 </busses>
@@ -14846,10 +14850,15 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 <wire x1="5.08" y1="-86.36" x2="5.08" y2="-91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="6"/>
+<pinref part="ICSP" gate="A" pin="6"/>
 <pinref part="GND13" gate="1" pin="GND"/>
 <wire x1="-116.84" y1="20.32" x2="-104.14" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="-104.14" y1="20.32" x2="-104.14" y2="17.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND14" gate="1" pin="GND"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="-124.46" y1="-27.94" x2="-124.46" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -14869,9 +14878,8 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 </segment>
 <segment>
 <pinref part="P+3" gate="1" pin="+5V"/>
-<wire x1="-106.68" y1="-5.08" x2="-106.68" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="2.54" x2="-124.46" y2="0" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="-106.68" y1="-12.7" x2="-101.6" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="STB"/>
@@ -15212,8 +15220,9 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 <label x="27.94" y="7.62" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="1"/>
+<pinref part="ICSP" gate="A" pin="1"/>
 <wire x1="-124.46" y1="25.4" x2="-137.16" y2="25.4" width="0.1524" layer="91"/>
+<label x="-137.16" y="25.4" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="PGD" class="0">
@@ -15224,36 +15233,43 @@ Source: www.rsonline.de .. SMBJ12/C/15/C/24/C/30/C/5.0/C/7.5/C Voltage Suppresso
 <label x="25.4" y="0" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="3"/>
-<wire x1="-124.46" y1="22.86" x2="-137.16" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="ICSP" gate="A" pin="3"/>
+<wire x1="-124.46" y1="22.86" x2="-147.32" y2="22.86" width="0.1524" layer="91"/>
+<label x="-147.32" y="22.86" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="MCLR" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="5"/>
-<wire x1="-124.46" y1="20.32" x2="-137.16" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="-137.16" y1="20.32" x2="-137.16" y2="10.16" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="-88.9" y1="-12.7" x2="-91.44" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="-137.16" y1="10.16" x2="-88.9" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="-88.9" y1="10.16" x2="-88.9" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="R14" gate="G$1" pin="1"/>
-<wire x1="-88.9" y1="-12.7" x2="-83.82" y2="-12.7" width="0.1524" layer="91"/>
-<junction x="-88.9" y="-12.7"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="-76.2" y1="-7.62" x2="-76.2" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="!MCLR/RE3"/>
-<wire x1="-73.66" y1="-12.7" x2="-68.58" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="-12.7" x2="-68.58" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="-91.44" y1="-12.7" x2="-76.2" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="-76.2" y="-12.7"/>
+<label x="-76.2" y="-7.62" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="ICSP" gate="A" pin="5"/>
+<wire x1="-124.46" y1="20.32" x2="-132.08" y2="20.32" width="0.1524" layer="91"/>
+<label x="-132.08" y="20.32" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="ICSP" gate="A" pin="2"/>
 <pinref part="D3" gate="G$1" pin="A"/>
 <wire x1="-116.84" y1="25.4" x2="-106.68" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="-124.46" y1="-12.7" x2="-124.46" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="1"/>
+<wire x1="-124.46" y1="-12.7" x2="-101.6" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="-124.46" y1="-17.78" x2="-124.46" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="-124.46" y="-12.7"/>
 </segment>
 </net>
 </nets>
